@@ -4,11 +4,11 @@
 One of the greatest fears when buying tickets for a movie is not getting good seats and having to show up extra early before the showtime in order to occupy their desired seats. Our movie theater reservation website helps solve this problem by displaying the theater’s seat map and allowing users to see which seats are currently available and reserve the seats in advance. Similar to other popular movie ticketing websites like Fandango, our website aims to help users reserve seats in advance with a simple seat map UI that is also very responsive when the user reserves their seats. 
 
 ## Application Screenshots
-![Login Page](screenshots\login.PNG)
+![Login Page](/screenshots/login.PNG?raw=true)
 Login Page
-![Movie Selection](selection\login.PNG)
+![Movie Selection](/screenshots/selection.PNG?raw=true)
 Movie Selection Page
-![Seat Reservation](screenshots\reservations.PNG)
+![Seat Reservation](/screenshots/reservations.PNG?raw=true)
 Seat Reservations Page
 
 ## File Structure
@@ -55,11 +55,11 @@ npm install
 npm start
 ```
 ## Diagrams
-![System Diagram](screenshots\system_diagram.PNG)
+![System Diagram](/screenshots/system_diagram.PNG?raw=true)
 System Diagram
-![Class Diagram](screenshots\class_diagram.PNG)
+![Class Diagram](/screenshots/class_diagram.PNG?raw=true)
 Class Diagram
-![Sequence Diagram](screenshots\sequence_diagram.PNG)
+![Sequence Diagram](/screenshots/sequence_diagram.PNG?raw=true)
 Sequence Diagram
-![DB Schema](screenshots\db.PNG)
+![DB Schema](/screenshots/db.PNG?raw=true)
 Database Schema
