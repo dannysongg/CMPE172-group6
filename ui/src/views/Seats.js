@@ -16,7 +16,7 @@ class Seats extends Component {
       this.props.history.push('/')
     }
     this.setState({ user: loginUser })
-    let seats = fetch('http://localhost:5000/seats/')
+    let seats = fetch('http://ec2-54-193-56-163.us-west-1.compute.amazonaws.com:5000/seats/')
       .then(res => res.json())
       .then(data => {
         this.setState({ Selected: data })
@@ -29,7 +29,7 @@ class Seats extends Component {
       el => el.seatID === id && el.userID === this.state.user.id
     )
     if (foundExisting) {
-      fetch('http://localhost:5000/seats/' + foundExisting._id, {
+      fetch('http://ec2-54-193-56-163.us-west-1.compute.amazonaws.com:5000/seats/' + foundExisting._id, {
         method: 'DELETE'
       })
         .then(res => res.json())
@@ -45,7 +45,7 @@ class Seats extends Component {
       if (foundExisting) {
         alert('this seat is already reserved')
       } else {
-        fetch('http://localhost:5000/seats/register', {
+        fetch('http://ec2-54-193-56-163.us-west-1.compute.amazonaws.com:5000/seats/register', {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           headers: {
             'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ class Seats extends Component {
     return (
       <header className='container-fluid'>
         <center>
-          <Link to='/'>Home</Link>
+          <Link to='/dashboard'>Home</Link>
         </center>
         <div className='text-right'>
           <button className='btn btn-dander' onClick={this.logout}>

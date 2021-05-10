@@ -1,0 +1,12 @@
+version: "3"
+
+services: 
+    src:
+        build:
+            context: ./ui
+            dockerfile: ./Dockerfile
+        # image: dannysongg/cmpe172:src
+        ports: 
+            - '80:3000'
+        links:
+            - api
