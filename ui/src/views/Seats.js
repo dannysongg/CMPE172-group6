@@ -12,6 +12,7 @@ class Seats extends Component {
       movie: ''
     }
   }
+  //server url http://ec2-54-67-118-75.us-west-1.compute.amazonaws.com:5000
   componentDidMount = () => {
     const query = new URLSearchParams(this.props.location.search)
     this.setState({ movie: query.get('movie') })
@@ -20,7 +21,7 @@ class Seats extends Component {
       this.props.history.push('/')
     }
     this.setState({ user: loginUser })
-    fetch('http://ec2-54-67-118-75.us-west-1.compute.amazonaws.com:5000/seats/')
+    fetch('http://localhost:5000/seats/')
       .then(res => res.json())
       .then(data => {
         this.setState({ Selected: data })
@@ -33,7 +34,7 @@ class Seats extends Component {
       el => el.seatID === id && el.userID === this.state.user.id
     )
     if (foundExisting) {
-      fetch('http://ec2-54-67-118-75.us-west-1.compute.amazonaws.com:5000/seats/' + foundExisting._id, {
+      fetch('http://localhost:5000/seats/' + foundExisting._id, {
         method: 'DELETE'
       })
         .then(res => res.json())
@@ -49,7 +50,7 @@ class Seats extends Component {
       if (foundExisting) {
         alert('this seat is already reserved')
       } else {
-        fetch('http://ec2-54-67-118-75.us-west-1.compute.amazonaws.com:5000/seats/register', {
+        fetch('http://localhost:5000/seats/register', {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           headers: {
             'Content-Type': 'application/json'

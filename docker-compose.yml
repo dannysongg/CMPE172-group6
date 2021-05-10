@@ -1,11 +1,16 @@
 version: "3"
 
 services: 
+    api:
+        build:
+            context: ./api
+            dockerfile: ./Dockerfile
+        ports:
+            - "5000:5000"
     src:
         build:
             context: ./ui
             dockerfile: ./Dockerfile
-        # image: dannysongg/cmpe172:src
         ports: 
             - '80:3000'
         links:
