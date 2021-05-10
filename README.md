@@ -1,5 +1,5 @@
 # SJSU Enterprise Software - CMPE 172/Spring 20212
-### Colin Chow, Danny Song, Yongwang Kwon
+### Colin Chow, Danny Song, Yongwon Kwon
 
 One of the greatest fears when buying tickets for a movie is not getting good seats and having to show up extra early before the showtime in order to occupy their desired seats. Our movie theater reservation website helps solve this problem by displaying the theater’s seat map and allowing users to see which seats are currently available and reserve the seats in advance. Similar to other popular movie ticketing websites like Fandango, our website aims to help users reserve seats in advance with a simple seat map UI that is also very responsive when the user reserves their seats. 
 
