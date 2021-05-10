@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import queryString from 'query-string'
 
 import { Link } from 'react-router-dom'
 import { MdEventSeat } from 'react-icons/md'
@@ -7,16 +8,19 @@ class Seats extends Component {
     super()
     this.state = {
       Selected: [],
-      user: {}
+      user: {},
+      movie: ''
     }
   }
   componentDidMount = () => {
+    const query = new URLSearchParams(this.props.location.search)
+    this.setState({ movie: query.get('movie') })
     let loginUser = JSON.parse(localStorage.getItem('user'))
     if (!loginUser) {
       this.props.history.push('/')
     }
     this.setState({ user: loginUser })
-    let seats = fetch('http://ec2-54-193-56-163.us-west-1.compute.amazonaws.com:5000/seats/')
+    fetch('http://ec2-54-67-118-75.us-west-1.compute.amazonaws.com:5000/seats/')
       .then(res => res.json())
       .then(data => {
         this.setState({ Selected: data })
@@ -29,7 +33,7 @@ class Seats extends Component {
       el => el.seatID === id && el.userID === this.state.user.id
     )
     if (foundExisting) {
-      fetch('http://ec2-54-193-56-163.us-west-1.compute.amazonaws.com:5000/seats/' + foundExisting._id, {
+      fetch('http://ec2-54-67-118-75.us-west-1.compute.amazonaws.com:5000/seats/' + foundExisting._id, {
         method: 'DELETE'
       })
         .then(res => res.json())
@@ -45,13 +49,17 @@ class Seats extends Component {
       if (foundExisting) {
         alert('this seat is already reserved')
       } else {
-        fetch('http://ec2-54-193-56-163.us-west-1.compute.amazonaws.com:5000/seats/register', {
+        fetch('http://ec2-54-67-118-75.us-west-1.compute.amazonaws.com:5000/seats/register', {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           headers: {
             'Content-Type': 'application/json'
             // 'Content-Type': 'application/x-www-form-urlencoded',
           },
-          body: JSON.stringify({ seatID: id, userID: this.state.user.id }) // body data type must match "Content-Type" header
+          body: JSON.stringify({
+            seatID: id,
+            userID: this.state.user.id,
+            movie: this.state.movie
+          }) // body data type must match "Content-Type" header
         })
           .then(res => res.json())
           .then(data => {
@@ -68,10 +76,12 @@ class Seats extends Component {
       return seat.seatID === seatID
     })
     if (found) {
-      if (found.userID === userID) {
-        return 'same'
-      } else {
-        return 'other'
+      if (found.movie === this.state.movie) {
+        if (found.userID === userID) {
+          return 'same'
+        } else {
+          return 'other'
+        }
       }
     }
   }

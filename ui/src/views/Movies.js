@@ -14,23 +14,23 @@ const Movie = () => {
         <div className='container'>
           <div className='row'>
             <div className='col-md-3'>
-              <Link to='/seats'>
+              <Link to='/seats/?movie=Demonslayer'>
                 <img src={logo} className='App-logo' alt='Demonslayer' />{' '}
               </Link>
             </div>
             <div className='col-md-3'>
-              <Link to='/seats'>
+              <Link to='/seats/?movie=Mortal_Kombat'>
                 <img src={logo2} className='App-logo' alt='Mortal Kombat' />{' '}
               </Link>
             </div>
             <div className='col-md-3'>
-              <Link to='/seats'>
+              <Link to='/seats/?movie=Godzilla_vs_Kong'>
                 <img src={logo3} className='App-logo' alt='Godzilla vs Kong' />{' '}
               </Link>
             </div>
             <div className='col-md-3'>
-              <Link to='/seats'>
-                <img src={logo4} className='App-logo' alt='Godzilla vs Kong' />{' '}
+              <Link to='/seats/?movie=Angel_Has_Fallen'>
+                <img src={logo4} className='App-logo' alt='Angel Has Fallen' />{' '}
               </Link>
             </div>
           </div>

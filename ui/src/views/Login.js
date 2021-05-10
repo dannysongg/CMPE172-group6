@@ -19,7 +19,7 @@ class Login extends Component {
   }
   login = e => {
     e.preventDefault()
-    fetch('http://ec2-54-193-56-163.us-west-1.compute.amazonaws.com:5000/user/login', {
+    fetch('http://ec2-54-67-118-75.us-west-1.compute.amazonaws.com:5000/user/login', {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ class Login extends Component {
       this.state.register.repeatPassword &&
       this.state.register.repeatPassword != ''
     )
-      fetch('http://ec2-54-193-56-163.us-west-1.compute.amazonaws.com:5000/user/register', {
+      fetch('http://ec2-54-67-118-75.us-west-1.compute.amazonaws.com:5000/user/register', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         headers: {
           'Content-Type': 'application/json'

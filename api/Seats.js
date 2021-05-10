@@ -3,7 +3,7 @@ const router = express.Router()
 let Seat = require('./schema/Seats')
 //NOTE  Registration route
 router.post('/register', (req, res) => {
-  if (req.body.seatID && req.body.userID) {
+  if (req.body.seatID && req.body.userID && req.body.movie) {
     Seat.find({ seatID: req.body.seatID }).then((seat, err) => {
       if (seat) {
         seat.remove().exec()
@@ -12,7 +12,8 @@ router.post('/register', (req, res) => {
     })
     let newSeat = new Seat({
       seatID: req.body.seatID,
-      userID: req.body.userID
+      userID: req.body.userID,
+      movie: req.body.movie
     })
     newSeat
       .save()
@@ -39,3 +40,5 @@ router.delete('/:seatID', (req, res) => {
 
 // Login Router
 module.exports = router
+
+

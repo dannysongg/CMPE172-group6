@@ -12,6 +12,10 @@ let SeatSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'User',
       required: [true, "can't be blank"]
+    },
+    movie: {
+      type: String,
+      required: [true, "can't be blank"]
     }
   },
   {
